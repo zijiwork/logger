@@ -15,7 +15,8 @@ func newBrush(color string) brush {
 	pre := "\033["
 	reset := "\033[0m"
 	return func(text string) string {
-		return pre + color + "m" + text + reset
+		//return pre + color + "m" + text + reset
+		return pre + color  + text + reset
 	}
 }
 
@@ -86,7 +87,7 @@ func (c *consoleLogger) printlnConsole(when time.Time, msg string) {
 
 func init() {
 	Register(AdapterConsole, &consoleLogger{
-		LogLevel: LevelDebug,
+		LogLevel: LevelInfo,
 		Colorful: runtime.GOOS != "windows",
 	})
 }
