@@ -16,7 +16,7 @@ func newBrush(color string) brush {
 	reset := "\033[0m"
 	return func(text string) string {
 		//return pre + color + "m" + text + reset
-		return pre + color  + text + reset
+		//return pre + color  + text + reset
 	}
 }
 
@@ -66,7 +66,7 @@ func (c *consoleLogger) LogWrite(when time.Time, msgText interface{}, level int)
 	}
 	msg, ok := msgText.(string)
 	if !ok {
-		return nil
+		//return nil
 	}
 	if c.Colorful {
 		msg = colors[level](msg)
